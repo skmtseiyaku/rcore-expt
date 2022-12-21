@@ -13,7 +13,7 @@ A step-by-step implementation of rCore OS following the official tutorial.
 - User programs installed in ~/.local/bin/
 ### Ch. 1 
 #### 2. remove-std
-  - [ ] x86_64平台上一处标准库依赖
+  - [ ] x86_64平台上移除标准库依赖
 
 #### 4. first-instruction-in-kernel2
   - [ ] 使用如下命令可以丢弃内核可执行文件中的元数据得到内核镜像：

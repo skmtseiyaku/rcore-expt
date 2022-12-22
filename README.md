@@ -27,20 +27,22 @@ A step-by-step implementation of rCore OS following the official tutorial.
     - [sifive/freedom-tools](https://github.com/sifive/freedom-tools)  (official prebuilt)
     - [ ] [rustsbi/rustsbi](https://github.com/rustsbi/rustsbi) How-to: build a custom RustSBI firmware for QEMU 
 
-    ```
-    $ qemu-system-riscv64 \
-      -machine virt \
-      -nographic \
-      -bios ./bootloader/rustsbi-qemu.bin \
-      -device loader,file=./target/riscv64gc-unknown-none-elf/release/rcore-expt.bin,addr=0x80200000 \
-      -s -S
 
-    $ riscv64-unknown-elf-gdb \
-      -ex 'file ./target/riscv64gc-unknown-none-elf/release/rcore-expt' \
-      -ex 'set arch riscv:rv64' \
-      -ex 'target remote localhost:1234'
-    ```
+      ```
+      $ qemu-system-riscv64 \
+        -machine virt \
+        -nographic \
+        -bios ./bootloader/rustsbi-qemu.bin \
+        -device loader,file=./target/riscv64gc-unknown-none-elf/release/rcore-expt.bin,addr=0x80200000 \
+        -s -S
+
+      $ riscv64-unknown-elf-gdb \
+        -ex 'file ./target/riscv64gc-unknown-none-elf/release/rcore-expt' \
+        -ex 'set arch riscv:rv64' \
+        -ex 'target remote localhost:1234'
+      ```
   - [ ] 0x101a 处的数据 0x8000 是能够跳转到 0x80000000 进入启动下一阶段的关键；自行探究位于 0x1000 和 0x100c 两条指令的含义
+    
     ```
     0x0000000000001000 in ?? ()
     $ (gdb) x/10i $pc

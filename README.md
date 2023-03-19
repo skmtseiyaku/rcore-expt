@@ -11,6 +11,7 @@ A step-by-step implementation of rCore OS following the official tutorial.
 ### Local Environment
 
 - All user programs are installed in `~/.local/bin/`.
+- Added VSCode workspace settings in `.vscode/settings.json` to prevent check-on-save errors of rust analyzer.
 ### Ch. 1 
 #### 2. remove-std
   - [ ] x86_64平台上移除标准库依赖
